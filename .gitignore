@@ -15,9 +15,10 @@
 .DS_Store
 design/
 node_modules/
+.parcel-cache/
+dist/
+src/fontawesome-free-6.2.0-web/
 style-guide.md
 README-template.md
 package-lock.json
-.parcel-cache/
-dist/
 .prettierrc

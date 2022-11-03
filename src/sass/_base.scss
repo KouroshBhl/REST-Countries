@@ -1,0 +1,15 @@
+$dark-mode-element: hsl(209, 23%, 22%);
+$dark-mode-background: hsl(207, 26%, 17%);
+$dark-mode-text: hsl(0, 0%, 100%);
+
+$text-color: hsl(200, 15%, 8%);
+$dark-gray-input: hsl(0, 0%, 52%);
+$light-gray-background: hsl(0, 0%, 98%);
+
+html {
+  font-size: 62.5%; //1rem = 10px
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Nunito Sans', sans-serif;
+}
