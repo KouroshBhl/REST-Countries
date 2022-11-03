@@ -6,10 +6,21 @@ $text-color: hsl(200, 15%, 8%);
 $dark-gray-input: hsl(0, 0%, 52%);
 $light-gray-background: hsl(0, 0%, 98%);
 
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
 html {
   font-size: 62.5%; //1rem = 10px
   box-sizing: border-box;
 }
 body {
   font-family: 'Nunito Sans', sans-serif;
+  line-height: 0;
+  font-weight: 300;
+  color: $text-color;
+  line-height: 1.6;
 }

@@ -1,3 +1,11 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
 html {
   font-size: 62.5%;
   box-sizing: border-box;
@@ -5,6 +13,16 @@ html {
 
 body {
   font-family: "Nunito Sans", sans-serif;
+  line-height: 0;
+  font-weight: 300;
+  color: hsl(200deg, 15%, 8%);
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 144rem;
+  min-height: 100vh;
+  margin: 0 auto;
 }
 
 /*# sourceMappingURL=style.css.map */
