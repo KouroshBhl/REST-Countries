@@ -22,5 +22,22 @@
     <link rel="stylesheet" href="src/style/style.css" />
     <script type="module" src="./src/js/controller.js"></script>
   </head>
-  <body></body>
+  <body>
+    <div class="container">
+      <header class="header">
+        <h1 class="header__title">Where in the world?</h1>
+        <span class="header__dark-mode">Dark mode</span>
+      </header>
+
+      <main class="content">
+        <section class="search">
+          <div class="search__country">
+            <input type="text" class="search__input" />
+          </div>
+          <div class="search__filter"><span>filter</span></div>
+        </section>
+        <section class="countries"></section>
+      </main>
+    </div>
+  </body>
 </html>
