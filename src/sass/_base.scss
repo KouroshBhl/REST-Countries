@@ -5,7 +5,9 @@ $dark-mode-text: hsl(0, 0%, 100%);
 $text-color: hsl(200, 15%, 8%);
 $dark-gray-input: hsl(0, 0%, 52%);
 $light-gray-background: hsl(0, 0%, 98%);
+$color-white: #fff;
 
+$border-1: 1px solid $dark-gray-input;
 *,
 *::before,
 *::after {
@@ -23,4 +25,5 @@ body {
   font-weight: 300;
   color: $text-color;
   line-height: 1.6;
+  font-size: 1.4rem;
 }

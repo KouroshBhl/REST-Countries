@@ -1,0 +1,53 @@
+//! HEADER
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: $border-1;
+  padding: 1.8rem 3.2rem;
+  &__title {
+  }
+  &__dark-mode {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  &__dark-text {
+    font-weight: 800;
+  }
+}
+
+//! SEARCH AND FILTER
+.search {
+  display: flex;
+  justify-content: space-between;
+  padding: 1.8rem 3.2rem;
+
+  &__country {
+  }
+  &__input {
+  }
+  &__filter {
+  }
+}
+
+//! COUNTRY
+.country {
+  background-color: $color-white;
+  -webkit-box-shadow: -1px 7px 17px -5px rgba(0, 0, 0, 0.3);
+  box-shadow: -1px 7px 17px -5px rgba(0, 0, 0, 0.3);
+  &__img {
+    display: block;
+  }
+  &__content {
+    padding: 2.4rem 1.8rem;
+  }
+  &__name {
+    margin-bottom: 1.8rem;
+  }
+  &__population {
+  }
+  &__title {
+    font-weight: 600;
+  }
+}
