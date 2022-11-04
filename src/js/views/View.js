@@ -4,11 +4,16 @@ export default class View {
   render(country) {
     this._data = country;
     const markup = this._generateMarkup();
+    this._clear();
     this._parentEl.insertAdjacentHTML('afterbegin', markup);
   }
 
   _generateMarkup() {
     return this._data.map(this._generateMarkupCountries).join('');
+  }
+
+  _clear() {
+    this._parentEl.innerHTML = '';
   }
 
   _generateMarkupCountries(result) {

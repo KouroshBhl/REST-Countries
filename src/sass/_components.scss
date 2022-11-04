@@ -59,3 +59,16 @@
     font-weight: 600;
   }
 }
+
+//! PAGINATION
+.pagination {
+  display: flex;
+  justify-content: center;
+  background-color: $dark-mode-element;
+  padding: 1.8rem;
+  &__button {
+    border: none;
+  }
+  &__text {
+  }
+}

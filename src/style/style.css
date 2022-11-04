@@ -65,6 +65,15 @@ body {
   font-weight: 600;
 }
 
+.pagination {
+  display: flex;
+  justify-content: center;
+  background-color: hsl(209deg, 23%, 22%);
+  padding: 1.8rem;
+}
+.pagination__button {
+  border: none;
+}
 .container {
   max-width: 144rem;
   min-height: 100vh;
@@ -74,6 +83,7 @@ body {
 
 .content {
   background-color: hsl(0deg, 0%, 98%);
+  padding-bottom: 6rem;
 }
 
 .countries {
@@ -81,6 +91,7 @@ body {
   grid-template-columns: 1fr 1fr 1fr 1fr;
   justify-items: center;
   gap: 6rem;
+  padding-bottom: 8rem;
 }
 
 /*# sourceMappingURL=style.css.map */

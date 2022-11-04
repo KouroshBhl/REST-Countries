@@ -7,14 +7,15 @@ const controlCountry = async function () {
   await model.loadCountry();
 
   //! 2) Render all countries
-  countryView.render(model.resultPerPage(1));
+  countryView.render(model.resultPerPage());
 
   //! 3) Render Pagination View
   PaginationView.render(model.state);
 };
 
-const controlPagination = function () {
-  console.log('Pagination');
+const controlPagination = function (goToPage) {
+  countryView.render(model.resultPerPage(goToPage));
+  PaginationView.render(model.state);
 };
 
 const init = function () {
