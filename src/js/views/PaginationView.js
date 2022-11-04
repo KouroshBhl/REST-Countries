@@ -1,6 +1,6 @@
 import View from './View';
 class PaginationView extends View {
-  _parentEl = document.querySelector('.pagination');
+  _parentEl = document.querySelector('.pagination__container');
 
   addHandlerClick(handler) {
     this._parentEl.addEventListener('click', function (e) {
@@ -17,14 +17,7 @@ class PaginationView extends View {
     const pages = Math.ceil(
       this._data.allCountries.length / this._data.resultsPerPage
     );
-    console.log(pages);
-    // let html = '';
-    // for (let i = 0; i < pages; i++) {
-    //   html += this._generateButtons(i);
-    // }
-    // return html;
-
-    // page 1 and there are other pages
+    // !page 1 and there are other pages
     if (this._data.page === 1 && pages > 1) {
       let html = '';
       for (let index = 1; index < pages; index++) {
@@ -34,17 +27,16 @@ class PaginationView extends View {
         this._generateCurrentPageButton(),
         html,
         this._generateNextButton(),
-      ];
+      ].join('');
     }
-    // page 1 and NOT other pages
+    // !page 1 and NOT other pages
     if (this._data.page === 1 && pages === 1) {
       return ``;
     }
-    // in other pages
+    // !In other pages
     if (this._data.page < pages) {
       let htmlNext = '';
       for (let index = this._data.page; index < pages; index++) {
-        //6
         console.log(index);
         htmlNext += this._generateOtherPagesPositive(
           index - this._data.page + 1
@@ -53,7 +45,6 @@ class PaginationView extends View {
 
       let htmlPrev = '';
       for (let i = this._data.page - 1; i > 0; i--) {
-        // 5
         htmlPrev += this._generateOtherPagesNegative(i);
       }
 
@@ -63,9 +54,9 @@ class PaginationView extends View {
         this._generateCurrentPageButton(),
         htmlNext,
         this._generateNextButton(),
-      ];
+      ].join('');
     }
-    // last page
+    // !last page
     if (pages > 1 && this._data.page === pages) {
       let html = '';
       for (let i = pages - 1; i > 0; i--) {
@@ -75,13 +66,13 @@ class PaginationView extends View {
         this._generatePrevButton(),
         html,
         this._generateCurrentPageButton(),
-      ];
+      ].join('');
     }
   }
   _generateCurrentPageButton() {
     return `
-    <button data-goto="${this._data.page}" class="pagination__button pagination__button--active ">
-      <span class="pagination__text">${this._data.page}</span>
+    <button data-goto="${this._data.page}" class="pagination__button pagination__button--active">
+      <span class="pagination__button--active-txt">${this._data.page}</span>
     </button>
     `;
   }
@@ -107,19 +98,17 @@ class PaginationView extends View {
     return `
     <button data-goto="${
       this._data.page - 1
-    }" class="pagination__button pagination__button--prev">
-      <i class="fa-solid fa-arrow-left"></i>
+    }" class="pagination__button pagination__button--prev pagination__arrow--left">
+    <i class="fa-solid fa-angle-left"></i>
     </button>
     `;
   }
   _generateNextButton() {
-    return `
-    <button data-goto="${
+    return `<button data-goto="${
       this._data.page + 1
-    }" class="pagination__button pagination__button--next">
-      <i class="fa-solid fa-arrow-right"></i>
-    </button>
-    `;
+    }" class="pagination__button pagination__button--next pagination__arrow--right">
+    <i class="fa-solid fa-angle-right"></i>
+    </button>`;
   }
 }
 

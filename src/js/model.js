@@ -14,7 +14,7 @@ export const loadCountry = async function () {
       state.allCountries.push({
         name: element.name.common,
         capital: element.capital,
-        flag: element.flags?.png,
+        flag: element.flags?.svg,
         languages: element.languages,
         population: element.population,
         subregion: element.subregion,

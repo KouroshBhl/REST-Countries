@@ -68,12 +68,45 @@ body {
 .pagination {
   display: flex;
   justify-content: center;
-  background-color: hsl(209deg, 23%, 22%);
-  padding: 1.8rem;
+  padding: 6.4rem 1.8rem;
+}
+.pagination__container {
+  display: flex;
+  gap: 7px;
+  padding: 1rem 3.2rem;
+  border-radius: 7px;
 }
 .pagination__button {
+  background-color: #e5e7eb;
   border: none;
+  padding: 1rem 1rem;
+  cursor: pointer;
+  border-radius: 10px;
 }
+.pagination__button--active {
+  background-color: hsl(200deg, 15%, 8%);
+}
+.pagination__button--active-txt {
+  color: #fff;
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: 600;
+  font-size: 1.6rem;
+}
+.pagination__text {
+  color: hsl(200deg, 15%, 8%);
+  font-size: 1.6rem;
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: 600;
+}
+.pagination__arrow--right {
+  margin-left: 1rem;
+  border-radius: 300px;
+}
+.pagination__arrow--left {
+  margin-right: 1rem;
+  border-radius: 300px;
+}
+
 .container {
   max-width: 144rem;
   min-height: 100vh;
@@ -92,6 +125,7 @@ body {
   justify-items: center;
   gap: 6rem;
   padding-bottom: 8rem;
+  border-bottom: 1px solid #e5e7eb;
 }
 
 /*# sourceMappingURL=style.css.map */
