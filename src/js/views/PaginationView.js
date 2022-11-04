@@ -2,6 +2,7 @@ import View from './View';
 class PaginationView extends View {
   _parentEl = document.querySelector('.pagination__container');
 
+  //! Get GoToPage dataset and pass to controller to render it
   addHandlerClick(handler) {
     this._parentEl.addEventListener('click', function (e) {
       e.preventDefault();
@@ -17,7 +18,7 @@ class PaginationView extends View {
     const pages = Math.ceil(
       this._data.allCountries.length / this._data.resultsPerPage
     );
-    // !page 1 and there are other pages
+    //! 1)page 1 and there are other pages
     if (this._data.page === 1 && pages > 1) {
       let html = '';
       for (let index = 1; index < pages; index++) {
@@ -29,11 +30,11 @@ class PaginationView extends View {
         this._generateNextButton(),
       ].join('');
     }
-    // !page 1 and NOT other pages
+    //! 2) page 1 and NOT other pages
     if (this._data.page === 1 && pages === 1) {
       return ``;
     }
-    // !In other pages
+    //! 3) In other pages
     if (this._data.page < pages) {
       let htmlNext = '';
       for (let index = this._data.page; index < pages; index++) {
@@ -56,7 +57,7 @@ class PaginationView extends View {
         this._generateNextButton(),
       ].join('');
     }
-    // !last page
+    //! 4) last page
     if (pages > 1 && this._data.page === pages) {
       let html = '';
       for (let i = pages - 1; i > 0; i--) {

@@ -13,8 +13,12 @@ const controlCountry = async function () {
   PaginationView.render(model.state);
 };
 
+//! Pagination
 const controlPagination = function (goToPage) {
+  //? 1) Pass go to page value
   countryView.render(model.resultPerPage(goToPage));
+
+  //? 2) Render pagination
   PaginationView.render(model.state);
 };
 

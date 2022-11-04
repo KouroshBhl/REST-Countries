@@ -7,6 +7,13 @@ class countryView extends View {
   }
 
   _generateMarkupCountries(result) {
+    let str = result.population.toString().split('.');
+    if (str[0].length >= 5) {
+      str[0] = str[0].replace(/(\d)(?=(\d{3})+$)/g, '$1,');
+    }
+    if (str[1] && str[1].length >= 5) {
+      str[1] = str[1].replace(/(\d{3})/g, '$1 ');
+    }
     return `
           <div class="country">
             <div class="country__container">
@@ -19,7 +26,7 @@ class countryView extends View {
             <div class="country__content">
               <h2 class="country__name">${result.name}</h2>
               <p class="country__population">
-                <span class="country__title">Population:</span> ${result.population}
+                <span class="country__title">Population:</span> ${str.join()}
               </p>
               <p class="country__region">
                 <span class="country__title">Region:</span> ${result.region}

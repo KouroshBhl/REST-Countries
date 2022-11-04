@@ -1,17 +1,16 @@
-import * as config from './config.js';
+import { RES_PER_PAGE, COUNTRY_API } from './config.js';
 import { getJSON } from './helper.js';
 export const state = {
   country: {},
   allCountries: [],
-  resultsPerPage: config.RES_PER_PAGE,
+  resultsPerPage: RES_PER_PAGE,
   page: 1,
 };
 
+//! Get countries data and make customization object with data
 export const loadCountry = async function () {
   try {
-    // const getCountry = await fetch(`${config.COUNTRY_API}/all`);
-    // const countryData = await getCountry.json();
-    const countryData = await getJSON(`${config.COUNTRY_API}/all`);
+    const countryData = await getJSON(`${COUNTRY_API}/all`);
 
     countryData.forEach((element) => {
       state.allCountries.push({
@@ -30,6 +29,7 @@ export const loadCountry = async function () {
   }
 };
 
+//! Slice data and pass to controller
 export const resultPerPage = function (page = state.page) {
   state.page = page;
   console.log(state.page);
