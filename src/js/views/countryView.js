@@ -1,20 +1,12 @@
-class countryView {
-  #parentEl = document.querySelector('.countries');
-  #data;
-  render(country) {
-    this.#data = country;
-    const markup = this.#generateMarkup();
+import View from './View.js';
+class countryView extends View {
+  _parentEl = document.querySelector('.countries');
 
-    this.#parentEl.insertAdjacentHTML('afterbegin', markup);
+  _generateMarkup() {
+    return this._data.map(this._generateMarkupCountries).join('');
   }
 
-  #generateMarkup() {
-    return this.#data.map(this.#generateMarkupCountries).join('');
-  }
-
-  #generateMarkupCountries(result) {
-    console.log(result);
-
+  _generateMarkupCountries(result) {
     return `
           <div class="country">
             <div class="country__container">
