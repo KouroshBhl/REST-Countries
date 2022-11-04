@@ -9,13 +9,14 @@ $color-white: #fff;
 $color-grey-1: #e5e7eb;
 $color-dark-gray-1: #111827;
 
-$border-1: 1px solid $dark-gray-input;
+$border-1: 2px solid $color-grey-1;
 *,
 *::before,
 *::after {
   margin: 0;
   padding: 0;
   box-sizing: inherit;
+  font-family: inherit;
 }
 html {
   font-size: 62.5%; //1rem = 10px

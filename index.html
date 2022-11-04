@@ -35,9 +35,22 @@
       <main class="content">
         <section class="search">
           <div class="search__country">
-            <input type="text" class="search__input" />
+            <i class="fa-solid fa-magnifying-glass fa-xl search__icon"></i>
+            <input
+              type="text"
+              class="search__input"
+              placeholder="Search for a country..."
+            />
           </div>
-          <div class="search__filter"><span>filter</span></div>
+          <div class="filter-container">
+            <select name="filter" id="" class="filter">
+              <option value="" class="filter__options">Africa</option>
+              <option value="" class="filter__options">Americas</option>
+              <option value="" class="filter__options">Asia</option>
+              <option value="" class="filter__options">Europe</option>
+              <option value="" class="filter__options">Oceania</option>
+            </select>
+          </div>
         </section>
         <section class="countries">
           <!-- <div class="country">

@@ -14,7 +14,6 @@ class PaginationView extends View {
   }
 
   _generateMarkup() {
-    console.log(this._data);
     const pages = Math.ceil(
       this._data.allCountries.length / this._data.resultsPerPage
     );
@@ -38,7 +37,6 @@ class PaginationView extends View {
     if (this._data.page < pages) {
       let htmlNext = '';
       for (let index = this._data.page; index < pages; index++) {
-        console.log(index);
         htmlNext += this._generateOtherPagesPositive(
           index - this._data.page + 1
         );

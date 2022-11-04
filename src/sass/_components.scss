@@ -21,13 +21,45 @@
 .search {
   display: flex;
   justify-content: space-between;
-  padding: 1.8rem 3.2rem;
+  padding: 4.8rem 3.2rem;
 
   &__country {
+    display: flex;
+    align-items: center;
+    background-color: $color-white;
+    -webkit-box-shadow: 4px 1px 24px -10px rgba(0, 0, 0, 0.2);
+    box-shadow: 4px 1px 24px -10px rgba(0, 0, 0, 0.2);
+  }
+  &__icon {
+    padding: 0 1.8rem;
+    color: $color-grey-1;
   }
   &__input {
+    width: 40rem;
+    padding: 1.3rem 5.2rem 1.3rem 1.8rem;
+    border: none;
+    font-size: 1.5rem;
+  }
+  &__input:focus {
+    outline: none;
   }
   &__filter {
+  }
+}
+
+//! FILTER
+.filter {
+  padding: 1.3rem 5.2rem 1.3rem 1.8rem;
+  border: none;
+  font-size: 1.6rem;
+  &:focus {
+    border: none;
+    outline: none;
+  }
+
+  &__options {
+    padding: 1rem;
+    margin-bottom: 1.8rem;
   }
 }
 
