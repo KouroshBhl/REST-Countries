@@ -43,8 +43,8 @@
   }
   &__img {
     display: block;
-    height: 100%;
-    width: 100%;
+    height: 22rem;
+    width: 31.4rem;
   }
   &__content {
     padding: 2.4rem 1.8rem;
@@ -76,7 +76,22 @@
     border: none;
     padding: 1rem 1rem;
     cursor: pointer;
-    border-radius: 10px;
+    border-radius: 100px;
+    transition: all 0.2s;
+    width: 4rem;
+    height: 4rem;
+  }
+  &__button:hover {
+    background-color: $text-color;
+  }
+
+  &__button:hover &__text {
+    color: $color-white;
+  }
+
+  &__arrow--right:hover svg,
+  &__arrow--left:hover svg {
+    color: $color-white;
   }
   &__button--active {
     background-color: $text-color;
@@ -96,9 +111,11 @@
   &__arrow--right {
     margin-left: 1rem;
     border-radius: 300px;
+    transition: all 0.2s;
   }
   &__arrow--left {
     margin-right: 1rem;
     border-radius: 300px;
+    transition: all 0.2s;
   }
 }
