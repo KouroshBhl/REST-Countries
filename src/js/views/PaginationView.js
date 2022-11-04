@@ -2,6 +2,14 @@ import View from './View';
 class PaginationView extends View {
   _parentEl = document.querySelector('.pagination');
 
+  addHandlerClick(handler) {
+    this._parentEl.addEventListener('click', function (e) {
+      const btn = e.target.closest('.pagination__button');
+      if (!btn) return;
+      handler();
+    });
+  }
+
   _generateMarkup() {
     console.log(this._data);
     const pages = Math.ceil(
