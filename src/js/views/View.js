@@ -2,12 +2,14 @@ export default class View {
   _parentEl = '';
   _targetEl = '';
   _data;
+  _resultsEl = document.querySelector('.results__number');
 
   render(country) {
     this._data = country;
     const markup = this._generateMarkup();
     this.clear();
     this._parentEl.insertAdjacentHTML('afterbegin', markup);
+    this.results();
   }
 
   _generateMarkup() {
@@ -56,5 +58,9 @@ export default class View {
             </div>
           </div>
     `;
+  }
+
+  results(numbers) {
+    this._resultsEl.textContent = numbers;
   }
 }

@@ -37,7 +37,6 @@ export const loadCountry = async function () {
 //! Slice data and pass to controller
 export const resultPerPage = function (page = state.allCountries.page) {
   state.allCountries.page = page;
-  console.log(state.allCountries.country);
   const start = (page - 1) * state.allCountries.resultsPerPage;
   const end = page * state.allCountries.resultsPerPage;
   return state.allCountries.country.slice(start, end);
