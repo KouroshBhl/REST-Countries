@@ -64,7 +64,9 @@ body {
 .filter {
   padding: 1.3rem 5.2rem 1.3rem 1.8rem;
   border: none;
-  font-size: 1.6rem;
+  font-size: 1.5rem;
+  -webkit-box-shadow: 4px 1px 24px -10px rgba(0, 0, 0, 0.2);
+  box-shadow: 4px 1px 24px -10px rgba(0, 0, 0, 0.2);
 }
 .filter:focus {
   border: none;

@@ -3,6 +3,7 @@ import { getJSON } from './helper.js';
 export const state = {
   country: {},
   allCountries: [],
+  filterCountries: [],
   resultsPerPage: RES_PER_PAGE,
   page: 1,
 };
@@ -36,4 +37,26 @@ export const resultPerPage = function (page = state.page) {
   const end = page * state.resultsPerPage;
 
   return state.allCountries.slice(start, end);
+};
+
+//! Filter countries by Region
+export const filterCountry = async function (region) {
+  try {
+    state.filterCountries = [];
+    const countries = await getJSON(`${COUNTRY_API}/region/${region}`);
+    countries.forEach((element) => {
+      state.filterCountries.push({
+        name: element.name.common,
+        capital: element.capital,
+        flag: element.flags?.svg,
+        languages: element.languages,
+        population: element.population,
+        subregion: element.subregion,
+        borders: element?.borders,
+        region: element.region,
+      });
+    });
+  } catch (error) {
+    console.error(error);
+  }
 };
