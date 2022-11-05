@@ -3,16 +3,19 @@ import View from './views/View';
 import countryView from './views/countryView.js';
 import PaginationView from './views/PaginationView.js';
 import FilterView from './views/filterView.js';
+import filterView from './views/filterView.js';
 
-const controlCountry = async function () {
+const controlCountry = async function (data = false) {
   //! 1) Load data
-  await model.loadCountry();
+  if (!data) await model.loadCountry();
 
   //! 2) Render all countries
   countryView.render(model.resultPerPage());
 
   //! 3) Render Pagination View
-  PaginationView.render(model.state);
+  PaginationView.render(model.state.allCountries);
+
+  countryView.displayShow();
 };
 
 //! Pagination
@@ -21,21 +24,19 @@ const controlPagination = function (goToPage) {
   countryView.render(model.resultPerPage(goToPage));
 
   //? 2) Render pagination
-  PaginationView.render(model.state);
+  PaginationView.render(model.state.allCountries);
 };
 
 const controlFilter = async function (region) {
   try {
-    console.log(region);
+    if (region === 'All') return controlCountry(true);
     //! 1) Send region to model
     await model.filterCountry(region);
 
     //! 2) Render countries by Region
-    FilterView.render(model.state.filterCountries);
-    console.log(model.state.filterCountries);
+    FilterView.render(model.state.filterCountries.country);
 
-    //! 3) Render pagination
-    // PaginationView.render(model.state.filterCountries);
+    filterView.displayNone();
   } catch (error) {
     console.error(error);
   }

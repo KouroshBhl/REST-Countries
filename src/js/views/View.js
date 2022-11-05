@@ -1,5 +1,6 @@
 export default class View {
   _parentEl = '';
+  _targetEl = '';
   _data;
 
   render(country) {
@@ -15,6 +16,13 @@ export default class View {
 
   clear() {
     this._parentEl.innerHTML = '';
+  }
+
+  displayNone() {
+    this._targetEl.style.display = 'none';
+  }
+  displayShow() {
+    this._targetEl.style.display = 'flex';
   }
 
   _generateMarkupCountries(result) {

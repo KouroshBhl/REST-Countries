@@ -2,10 +2,14 @@ import { RES_PER_PAGE, COUNTRY_API } from './config.js';
 import { getJSON } from './helper.js';
 export const state = {
   country: {},
-  allCountries: [],
-  filterCountries: [],
-  resultsPerPage: RES_PER_PAGE,
-  page: 1,
+  allCountries: {
+    country: [],
+    page: 1,
+    resultsPerPage: RES_PER_PAGE,
+  },
+  filterCountries: {
+    country: [],
+  },
 };
 
 //! Get countries data and make customization object with data
@@ -14,7 +18,7 @@ export const loadCountry = async function () {
     const countryData = await getJSON(`${COUNTRY_API}/all`);
 
     countryData.forEach((element) => {
-      state.allCountries.push({
+      state.allCountries.country.push({
         name: element.name.common,
         capital: element.capital,
         flag: element.flags?.svg,
@@ -31,21 +35,21 @@ export const loadCountry = async function () {
 };
 
 //! Slice data and pass to controller
-export const resultPerPage = function (page = state.page) {
-  state.page = page;
-  const start = (page - 1) * state.resultsPerPage;
-  const end = page * state.resultsPerPage;
-
-  return state.allCountries.slice(start, end);
+export const resultPerPage = function (page = state.allCountries.page) {
+  state.allCountries.page = page;
+  console.log(state.allCountries.country);
+  const start = (page - 1) * state.allCountries.resultsPerPage;
+  const end = page * state.allCountries.resultsPerPage;
+  return state.allCountries.country.slice(start, end);
 };
 
 //! Filter countries by Region
 export const filterCountry = async function (region) {
   try {
-    state.filterCountries = [];
+    state.filterCountries.country = [];
     const countries = await getJSON(`${COUNTRY_API}/region/${region}`);
     countries.forEach((element) => {
-      state.filterCountries.push({
+      state.filterCountries.country.push({
         name: element.name.common,
         capital: element.capital,
         flag: element.flags?.svg,
