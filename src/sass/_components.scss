@@ -5,8 +5,7 @@
   justify-content: space-between;
   border-bottom: $border-1;
   padding: 1.8rem 3.2rem;
-  &__title {
-  }
+
   &__dark-mode {
     display: flex;
     align-items: center;
@@ -43,8 +42,6 @@
   &__input:focus {
     outline: none;
   }
-  &__filter {
-  }
 }
 
 //! FILTER
@@ -69,10 +66,6 @@
 .results {
   color: $dark-gray-input;
   padding: 0 0 3.2rem 3.2rem;
-  &__p {
-  }
-  &__number {
-  }
 }
 //! COUNTRY
 .country {
@@ -95,8 +88,7 @@
   &__name {
     margin-bottom: 1.8rem;
   }
-  &__population {
-  }
+
   &__title {
     font-weight: 600;
   }

@@ -61,6 +61,7 @@ body {
 .search__input:focus {
   outline: none;
 }
+
 .filter {
   padding: 1.3rem 5.2rem 1.3rem 1.8rem;
   border: none;
@@ -81,6 +82,7 @@ body {
   color: hsl(0deg, 0%, 52%);
   padding: 0 0 3.2rem 3.2rem;
 }
+
 .country {
   background-color: #fff;
   -webkit-box-shadow: -1px 7px 17px -5px rgba(0, 0, 0, 0.3);

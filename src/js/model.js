@@ -15,23 +15,37 @@ export const state = {
 //! Get countries data and make customization object with data
 export const loadCountry = async function () {
   try {
-    const countryData = await getJSON(`${COUNTRY_API}/all`);
-
-    countryData.forEach((element) => {
-      state.allCountries.country.push({
-        name: element.name.common,
-        capital: element.capital,
-        flag: element.flags?.svg,
-        languages: element.languages,
-        population: element.population,
-        subregion: element.subregion,
-        borders: element?.borders,
-        region: element.region,
-      });
-    });
+    const country = await getJSON(`${COUNTRY_API}/all`);
+    customizeData(country, state.allCountries.country);
   } catch (err) {
     console.error(err);
   }
+};
+
+//! Filter countries by Region
+export const filterCountry = async function (region) {
+  try {
+    state.filterCountries.country = [];
+    const countries = await getJSON(`${COUNTRY_API}/region/${region}`);
+    customizeData(countries, state.filterCountries.country);
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+const customizeData = function (data, state) {
+  data.forEach((el) => {
+    state.push({
+      name: el.name.common,
+      capital: el.capital,
+      flag: el.flags?.svg,
+      languages: el.languages,
+      population: el.population,
+      subregion: el.subregion,
+      borders: el?.borders,
+      region: el.region,
+    });
+  });
 };
 
 //! Slice data and pass to controller
@@ -40,26 +54,4 @@ export const resultPerPage = function (page = state.allCountries.page) {
   const start = (page - 1) * state.allCountries.resultsPerPage;
   const end = page * state.allCountries.resultsPerPage;
   return state.allCountries.country.slice(start, end);
-};
-
-//! Filter countries by Region
-export const filterCountry = async function (region) {
-  try {
-    state.filterCountries.country = [];
-    const countries = await getJSON(`${COUNTRY_API}/region/${region}`);
-    countries.forEach((element) => {
-      state.filterCountries.country.push({
-        name: element.name.common,
-        capital: element.capital,
-        flag: element.flags?.svg,
-        languages: element.languages,
-        population: element.population,
-        subregion: element.subregion,
-        borders: element?.borders,
-        region: element.region,
-      });
-    });
-  } catch (error) {
-    console.error(error);
-  }
 };

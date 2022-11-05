@@ -15,8 +15,10 @@ const controlCountry = async function (data = false) {
   //! 3) Render Pagination View
   PaginationView.render(model.state.allCountries);
 
+  //! 4) Calculate and render number of ALL countries
   countryView.results(model.state.allCountries.country.length);
 
+  //! 5) Display Pagination
   countryView.displayShow();
 };
 
@@ -28,6 +30,7 @@ const controlPagination = function (goToPage) {
   //? 2) Render pagination
   PaginationView.render(model.state.allCountries);
 
+  //? 3) Calculate and render number of ALL countries
   countryView.results(model.state.allCountries.country.length);
 };
 
@@ -40,8 +43,10 @@ const controlFilter = async function (region) {
     //! 2) Render countries by Region
     FilterView.render(model.state.filterCountries.country);
 
+    //! 3) Calculate and render number of FILTERED countries
     countryView.results(model.state.filterCountries.country.length);
 
+    //! 4) Hide pagination
     filterView.displayNone();
   } catch (error) {
     console.error(error);
