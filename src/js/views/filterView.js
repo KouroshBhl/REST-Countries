@@ -5,7 +5,6 @@ class filterView extends View {
 
   addHandlerClick(handler) {
     const select = document.getElementById('filter');
-
     select.addEventListener('change', function () {
       const option = select.options[select.selectedIndex].value;
       handler(option);

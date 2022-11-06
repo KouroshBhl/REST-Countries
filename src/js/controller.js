@@ -4,8 +4,10 @@ import countryView from './views/countryView.js';
 import PaginationView from './views/PaginationView.js';
 import FilterView from './views/filterView.js';
 import filterView from './views/filterView.js';
-
 const controlCountry = async function (data = false) {
+  //! 0) Load Spinner
+  countryView.loadingSpinner();
+
   //! 1) Load data
   if (!data) await model.loadCountry();
 
@@ -36,6 +38,9 @@ const controlPagination = function (goToPage) {
 
 const controlFilter = async function (region) {
   try {
+    //! 0) Load Spinner
+    filterView.loadingSpinner();
+
     if (region === 'All') return controlCountry(true);
     //! 1) Send region to model
     await model.filterCountry(region);

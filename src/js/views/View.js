@@ -3,6 +3,7 @@ export default class View {
   _targetEl = '';
   _data;
   _resultsEl = document.querySelector('.results__number');
+  _spinnerEl = document.querySelector('.spinner');
 
   render(country) {
     this._data = country;
@@ -18,6 +19,14 @@ export default class View {
 
   clear() {
     this._parentEl.innerHTML = '';
+    this._spinnerEl.innerHTML = '';
+  }
+
+  loadingSpinner() {
+    const markup = ` 
+    <span class="loader"></span>
+    `;
+    this._spinnerEl.insertAdjacentHTML('beforeend', markup);
   }
 
   displayNone() {
