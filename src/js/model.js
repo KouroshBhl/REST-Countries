@@ -55,3 +55,14 @@ export const resultPerPage = function (page = state.allCountries.page) {
   const end = page * state.allCountries.resultsPerPage;
   return state.allCountries.country.slice(start, end);
 };
+
+//! Search input
+export const searchData = function (value) {
+  if (!state.allCountries) return;
+  const valueLength = value.length;
+  const result = state.allCountries.country.filter(
+    (country) =>
+      country.name.toLowerCase().slice(0, valueLength) === value.toLowerCase()
+  );
+  return result;
+};

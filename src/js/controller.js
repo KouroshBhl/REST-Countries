@@ -4,6 +4,9 @@ import countryView from './views/countryView.js';
 import PaginationView from './views/PaginationView.js';
 import FilterView from './views/filterView.js';
 import filterView from './views/filterView.js';
+import SearchView from './views/searchView.js';
+import searchView from './views/searchView.js';
+
 const controlCountry = async function (data = false) {
   //! 0) Load Spinner
   countryView.loadingSpinner();
@@ -36,6 +39,7 @@ const controlPagination = function (goToPage) {
   countryView.results(model.state.allCountries.country.length);
 };
 
+//! Filter
 const controlFilter = async function (region) {
   try {
     //! 0) Load Spinner
@@ -58,9 +62,19 @@ const controlFilter = async function (region) {
   }
 };
 
+//! Search
+const controlSearch = function (value) {
+  //! 1) Render countries
+  searchView.render(model.searchData(value));
+
+  //! 2) Calculate number of countries
+  searchView.results(model.searchData(value).length);
+};
+
 const init = function () {
   controlCountry();
   PaginationView.addHandlerClick(controlPagination);
   FilterView.addHandlerClick(controlFilter);
+  SearchView.addHandlerSearch(controlSearch);
 };
 init();
