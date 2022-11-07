@@ -1,7 +1,7 @@
 import { RES_PER_PAGE, COUNTRY_API } from './config.js';
 import { getJSON } from './helper.js';
 export const state = {
-  country: {},
+  country: [],
   allCountries: {
     country: [],
     page: 1,
@@ -69,7 +69,28 @@ export const searchData = function (value) {
 export const detailCountry = async function (countryName) {
   try {
     const country = await getJSON(`${COUNTRY_API}/name/${countryName}`);
-    console.log(country);
+
+    country.forEach((el) => {
+      state.country.push({
+        commonName: el.name.common,
+        nativeName: el.name.nativeName,
+        officialName: el.name.official,
+        area: el.area,
+        borders: el?.borders,
+        fifa: el.fifa,
+        flag: el.flags.svg,
+        languages: el.languages,
+        population: el.population,
+        region: el.region,
+        subRegion: el.subregion,
+        startWeek: el.startOfWeek,
+        timeZone: el.timezones,
+        postalCodeFormat: el.postalCode?.format,
+        capital: el.capital,
+        currencies: el.currencies,
+        tld: el.tld,
+      });
+    });
   } catch (error) {
     console.error(error);
   }

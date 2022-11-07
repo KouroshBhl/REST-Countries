@@ -10,7 +10,7 @@ export default class View {
     const markup = this._generateMarkup();
     this.clear();
     this._parentEl.insertAdjacentHTML('afterbegin', markup);
-    this.results();
+    // this.results();
   }
 
   _generateMarkup() {
@@ -45,11 +45,6 @@ export default class View {
       str[1] = str[1].replace(/(\d{3})/g, '$1 ');
     }
 
-    /*
-    ${result.name
-                .slice(0, -1)
-                .replaceAll(' ', '-')}">${result.name}
-                */
     return `
           <div class="country">
             <div class="country__container">
