@@ -68,15 +68,22 @@ export const searchData = function (value) {
 
 export const detailCountry = async function (countryName) {
   try {
+    state.country = [];
     const country = await getJSON(`${COUNTRY_API}/name/${countryName}`);
+    console.log(country[0].borders);
+    const countryBorders = country[0].borders;
 
+    const borders = await getJSON(
+      `${COUNTRY_API}/alpha?codes=${countryBorders}`
+    );
+    const bordersName = borders.map((border) => border.name.common);
     country.forEach((el) => {
       state.country.push({
         commonName: el.name.common,
         nativeName: el.name.nativeName,
         officialName: el.name.official,
         area: el.area,
-        borders: el?.borders,
+        borders: bordersName,
         fifa: el.fifa,
         flag: el.flags.svg,
         languages: el.languages,
@@ -95,3 +102,33 @@ export const detailCountry = async function (countryName) {
     console.error(error);
   }
 };
+
+// export const searchCounryCode = async function (name) {
+//   try {
+
+//     const country = await getJSON(`${COUNTRY_API}/name/${name}`);
+//     country.forEach((el) => {
+//       state.country.push({
+//         commonName: el.name.common,
+//         nativeName: el.name.nativeName,
+//         officialName: el.name.official,
+//         area: el.area,
+//         borders: bordersName,
+//         fifa: el.fifa,
+//         flag: el.flags.svg,
+//         languages: el.languages,
+//         population: el.population,
+//         region: el.region,
+//         subRegion: el.subregion,
+//         startWeek: el.startOfWeek,
+//         timeZone: el.timezones,
+//         postalCodeFormat: el.postalCode?.format,
+//         capital: el.capital,
+//         currencies: el.currencies,
+//         tld: el.tld,
+//       });
+//     });
+//   } catch (error) {
+//     console.error(error);
+//   }
+// };

@@ -14,11 +14,9 @@ class DetailCountry extends View {
   }
 
   _generateMarkup() {
-    console.log(this._data);
     const country = this._data[0];
     this._generateBorderCountries();
 
-    console.log(country);
     return `
     <figure class="image">
       <img src="${country.flag}" alt="" class="image__country" />
@@ -90,8 +88,6 @@ class DetailCountry extends View {
   }
 
   _generateBorderCountries() {
-    console.log(this._data[0]);
-
     return this._data[0].borders
       .map((border) => `<a class="btn" href="#">${border}</a>`)
       .join('');
