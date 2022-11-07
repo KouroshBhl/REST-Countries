@@ -3,8 +3,9 @@ import borderView from './views/borderView.js';
 import detailView from './views/detailView';
 
 const controlCountry = async function (value) {
+  detailView.loadingSpinner();
+
   const hashID = window.location.hash.replaceAll('-', ' ').slice(1);
-  console.log(hashID);
 
   if (!value) await model.detailCountry(hashID);
 

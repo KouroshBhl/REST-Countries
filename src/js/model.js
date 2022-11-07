@@ -69,9 +69,9 @@ export const searchData = function (value) {
 export const detailCountry = async function (countryName) {
   try {
     state.country = [];
-    console.log(countryName);
-    const country = await getJSON(`${COUNTRY_API}/name/${countryName}`);
-    console.log(country);
+    const country = await getJSON(
+      `${COUNTRY_API}/name/${countryName}?fullText=true`
+    );
     const countryBorders = country[0]?.borders;
 
     let borders;

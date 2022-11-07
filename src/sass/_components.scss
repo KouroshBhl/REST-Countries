@@ -237,6 +237,7 @@
     flex: 0 0 50%;
     margin-bottom: 1.2rem;
   }
+
   &__title {
     font-weight: 600;
     margin-right: 0.4rem;
@@ -271,6 +272,7 @@
   display: flex;
   align-items: center;
   gap: 1.8rem;
+  flex-wrap: wrap;
   &-name {
     font-weight: 800;
   }

@@ -10,7 +10,6 @@ export default class View {
     const markup = this._generateMarkup();
     this.clear();
     this._parentEl.insertAdjacentHTML('afterbegin', markup);
-    // this.results();
   }
 
   _generateMarkup() {
@@ -26,6 +25,7 @@ export default class View {
     const markup = ` 
     <span class="loader"></span>
     `;
+    this.clear();
     this._spinnerEl.insertAdjacentHTML('beforeend', markup);
   }
 
