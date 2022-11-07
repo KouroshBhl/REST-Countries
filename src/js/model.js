@@ -59,10 +59,9 @@ export const resultPerPage = function (page = state.allCountries.page) {
 //! Search input
 export const searchData = function (value) {
   if (!state.allCountries) return;
-  const valueLength = value.length;
   const result = state.allCountries.country.filter(
     (country) =>
-      country.name.toLowerCase().slice(0, valueLength) === value.toLowerCase()
+      country.name.toLowerCase().slice(0, value.length) === value.toLowerCase()
   );
   return result;
 };

@@ -1,11 +1,11 @@
 import * as model from './model.js';
-import View from './views/View';
 import countryView from './views/countryView.js';
 import PaginationView from './views/PaginationView.js';
 import FilterView from './views/filterView.js';
 import filterView from './views/filterView.js';
 import SearchView from './views/searchView.js';
 import searchView from './views/searchView.js';
+import DetailCountry from './views/detailCountry';
 
 const controlCountry = async function (data = false) {
   //! 0) Load Spinner

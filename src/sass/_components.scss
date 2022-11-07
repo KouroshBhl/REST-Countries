@@ -179,3 +179,103 @@
     transition: all 0.2s;
   }
 }
+
+//////////////////////////////////////
+//? DETAIL COUNTRY
+//! BACK BUTTON
+.container-country {
+  max-width: 120rem;
+  margin: 0 auto;
+}
+.back-btn {
+  padding: 3.2rem 0;
+}
+.detail__container {
+  margin-bottom: 3.2rem;
+}
+.btn:link,
+.btn:visited {
+  text-decoration: none;
+  color: $color-dark-gray-1;
+  display: inline-block;
+  align-items: center;
+  gap: 1.2rem;
+  border: 1px solid $color-grey-1;
+  padding: 0.9rem 3.2rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  background-color: $color-white;
+  cursor: pointer;
+  border-radius: 4px;
+  letter-spacing: 1.2px;
+  box-shadow: -1px 3px 16px -9px rgba(0, 0, 0, 0.39);
+  -webkit-box-shadow: -1px 3px 16px -9px rgba(0, 0, 0, 0.39);
+  -moz-box-shadow: -1px 3px 16px -9px rgba(0, 0, 0, 0.39);
+}
+.country-content {
+  display: flex;
+  gap: 8rem;
+}
+.image {
+  &__country {
+    width: 500px;
+    height: auto;
+  }
+}
+.detail {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+  font-size: 1.5rem;
+
+  &__list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  &__li {
+    flex: 0 0 50%;
+    margin-bottom: 1.2rem;
+  }
+  &__title {
+    font-weight: 600;
+    margin-right: 0.4rem;
+  }
+  &__name {
+    font-size: 2.4rem;
+  }
+  &__container {
+  }
+  &__native-name {
+  }
+  &__population {
+  }
+  &__region {
+  }
+  &__sub-region {
+  }
+  &__capital {
+  }
+  &__top-lvl-domain {
+  }
+  &__currencies {
+  }
+  &__languages {
+  }
+  &__data {
+  }
+}
+
+//! BORDERS
+.country__borders {
+  display: flex;
+  align-items: center;
+  gap: 1.8rem;
+  &-name {
+    font-weight: 800;
+  }
+  &-btn:link,
+  &-btn:visited {
+    padding: 0.5rem 1.8rem;
+  }
+}

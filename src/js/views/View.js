@@ -44,6 +44,12 @@ export default class View {
     if (str[1] && str[1].length >= 5) {
       str[1] = str[1].replace(/(\d{3})/g, '$1 ');
     }
+
+    /*
+    ${result.name
+                .slice(0, -1)
+                .replaceAll(' ', '-')}">${result.name}
+                */
     return `
           <div class="country">
             <div class="country__container">
@@ -54,7 +60,9 @@ export default class View {
             />
             </div>
             <div class="country__content">
-              <h2 class="country__name">${result.name}</h2>
+              <h2 class="country__name"><a href="country.html">${
+                result.name
+              }</a></h2>
               <p class="country__population">
                 <span class="country__title">Population:</span> ${str.join()}
               </p>

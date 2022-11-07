@@ -5,7 +5,8 @@
   "scripts": {
     "compile:sass": "sass --watch src/sass/main.scss src/style/style.css",
     "start": "parcel index.html",
-    "build": "parcel build index.html"
+    "build": "parcel build index.html",
+    "page": "npx parcel ./*.html"
   },
   "author": "Kourosh Baharloo",
   "license": "ISC",
