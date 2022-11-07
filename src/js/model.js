@@ -65,3 +65,12 @@ export const searchData = function (value) {
   );
   return result;
 };
+
+export const detailCountry = async function (countryName) {
+  try {
+    const country = await getJSON(`${COUNTRY_API}/name/${countryName}`);
+    console.log(country);
+  } catch (error) {
+    console.error(error);
+  }
+};

@@ -5,7 +5,7 @@ import FilterView from './views/filterView.js';
 import filterView from './views/filterView.js';
 import SearchView from './views/searchView.js';
 import searchView from './views/searchView.js';
-import DetailCountry from './views/detailCountry';
+import detailView from './views/detailView';
 
 const controlCountry = async function (data = false) {
   //! 0) Load Spinner
@@ -71,10 +71,15 @@ const controlSearch = function (value) {
   searchView.results(model.searchData(value).length);
 };
 
+const controlDetailCountry = function (value) {
+  window.location = `/country.html#${value.replaceAll(' ', '-')}`;
+};
+
 const init = function () {
   controlCountry();
   PaginationView.addHandlerClick(controlPagination);
   FilterView.addHandlerClick(controlFilter);
   SearchView.addHandlerSearch(controlSearch);
+  detailView.addHandleClick(controlDetailCountry);
 };
 init();

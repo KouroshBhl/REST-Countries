@@ -60,7 +60,7 @@ export default class View {
             />
             </div>
             <div class="country__content">
-              <h2 class="country__name"><a href="country.html">${
+              <h2 class="country__name"><a href="country.html" class="country__name-a">${
                 result.name
               }</a></h2>
               <p class="country__population">
