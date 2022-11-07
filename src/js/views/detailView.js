@@ -15,7 +15,6 @@ class DetailCountry extends View {
 
   _generateMarkup() {
     const country = this._data[0];
-    this._generateBorderCountries();
 
     return `
     <figure class="image">
@@ -73,7 +72,7 @@ class DetailCountry extends View {
 
     <div class="country__borders">
       <p class="country__borders-name">Border Countries</p>
-      ${this._generateBorderCountries()}
+      ${country.borders ? this._generateBorderCountries() : 'No Borders!'}
       </div>
    </div>
     `;
