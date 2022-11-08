@@ -1,10 +1,10 @@
 import * as model from './model.js';
-import borderView from './views/borderView.js';
-import detailView from './views/detailView';
+import BorderView from './views/borderView.js';
+import DetailView from './views/detailView';
 
 const controlCountry = async function (value) {
   //! 1) Load Spinner
-  detailView.loadingSpinner();
+  DetailView.loadingSpinner();
 
   //! 2) Get Hash ID
   const hashID = window.location.hash.replaceAll('-', ' ').slice(1);
@@ -16,11 +16,11 @@ const controlCountry = async function (value) {
   if (value) await model.detailCountry(value);
 
   //! 5) Render country
-  detailView.render(model.state.country);
+  DetailView.render(model.state.country);
 };
 
 //! Use IIFE (Immediately Invoked Function Expression)
 (function () {
   controlCountry();
-  borderView.addHandleClickBorders(controlCountry);
+  BorderView.addHandleClickBorders(controlCountry);
 })();
