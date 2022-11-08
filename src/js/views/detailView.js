@@ -15,7 +15,6 @@ class DetailCountry extends View {
 
   _generateMarkup() {
     const country = this._data[0];
-
     return `
     <figure class="image">
       <img src="${country.flag}" alt="" class="image__country" />

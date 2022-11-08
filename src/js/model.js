@@ -40,7 +40,7 @@ const customizeData = function (data, state) {
       capital: el.capital,
       flag: el.flags?.svg,
       languages: el.languages,
-      population: el.population,
+      population: seperateNumbers(el.population),
       subregion: el.subregion,
       borders: el?.borders,
       region: el.region,
@@ -89,7 +89,7 @@ export const detailCountry = async function (countryName) {
         fifa: el.fifa,
         flag: el.flags.svg,
         languages: el.languages,
-        population: el.population,
+        population: seperateNumbers(el.population),
         region: el.region,
         subRegion: el.subregion,
         startWeek: el.startOfWeek,
@@ -103,4 +103,16 @@ export const detailCountry = async function (countryName) {
   } catch (error) {
     console.error(error);
   }
+};
+
+//! Seperate numbers
+const seperateNumbers = function (number) {
+  let str = number.toString().split('.');
+  if (str[0].length >= 5) {
+    str[0] = str[0].replace(/(\d)(?=(\d{3})+$)/g, '$1,');
+  }
+  if (str[1] && str[1].length >= 5) {
+    str[1] = str[1].replace(/(\d{3})/g, '$1 ');
+  }
+  return str.join('');
 };
