@@ -75,11 +75,11 @@ const controlDetailCountry = function (value) {
   window.location = `/country.html#${value.replaceAll(' ', '-')}`;
 };
 
-const init = function () {
+//! Use IIFE (Immediately Invoked Function Expression)
+(function () {
   controlCountry();
   PaginationView.addHandlerClick(controlPagination);
   FilterView.addHandlerClick(controlFilter);
   SearchView.addHandlerSearch(controlSearch);
   detailView.addHandleClick(controlDetailCountry);
-};
-init();
+})();
