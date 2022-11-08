@@ -1,5 +1,13 @@
+a:link,
+a:visited {
+  text-decoration: none;
+  color: $color-dark-gray-1;
+}
+a:hover,
+a:active {
+  color: $color-dark-gray-1-opacity;
+}
 //! HEADER
-
 .header {
   display: flex;
   justify-content: space-between;
@@ -195,8 +203,6 @@
 }
 .btn:link,
 .btn:visited {
-  text-decoration: none;
-  color: $color-dark-gray-1;
   display: inline-block;
   align-items: center;
   gap: 1.2rem;

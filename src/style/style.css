@@ -21,6 +21,17 @@ body {
   font-size: 1.4rem;
 }
 
+a:link,
+a:visited {
+  text-decoration: none;
+  color: rgb(17, 24, 39);
+}
+
+a:hover,
+a:active {
+  color: rgba(17, 24, 39, 0.8);
+}
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -202,8 +213,6 @@ body {
 
 .btn:link,
 .btn:visited {
-  text-decoration: none;
-  color: #111827;
   display: inline-block;
   align-items: center;
   gap: 1.2rem;
